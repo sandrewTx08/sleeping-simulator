@@ -1,6 +1,13 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { AppProps } from "next/app";
+import GenderProvider from "@/contexts/gender";
+import AgeProvider from "@/contexts/age";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <AgeProvider>
+      <GenderProvider>
+        <Component {...pageProps} />
+      </GenderProvider>
+    </AgeProvider>
+  );
 }
