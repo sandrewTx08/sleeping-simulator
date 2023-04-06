@@ -7,21 +7,29 @@ const AddInteligence = styled.button``;
 export default function Component() {
   const [intelligence, intelligenceSet] = useState(-1);
   const [money, moneySet] = useState(-1000);
-  const [playSnore] = useSound("/snore.mp3");
-  const [playCash] = useSound("/cash.mp3");
+  const [playSnore] = useSound("snore.mp3");
+  const [playCash] = useSound("cash.mp3");
+  const moneyTimer = 5000;
+  const snoreTimer = 3000;
 
   useEffect(() => {
     setInterval(() => {
       playCash();
-      moneySet((money) => money + 500);
-    }, 5000);
+    }, moneyTimer);
   }, [playCash]);
 
   useEffect(() => {
     setInterval(() => {
       playSnore();
-    }, 3000);
+    }, snoreTimer);
   }, [playSnore]);
+
+  useEffect(() => {
+    setInterval(() => {
+      playCash();
+      moneySet((money) => (money += 500));
+    }, moneyTimer);
+  }, []);
 
   return (
     <div>
