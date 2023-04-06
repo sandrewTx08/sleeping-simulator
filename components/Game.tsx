@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import useSound from "use-sound";
+import { GrAdd } from "react-icons/gr";
 
-const AddInteligence = styled.button``;
+const AddIntelligence = styled.button`
+  background-color: brown;
+  color: white;
+`;
 
 export default function Component() {
   const [intelligence, intelligenceSet] = useState(-1);
@@ -26,7 +30,6 @@ export default function Component() {
 
   useEffect(() => {
     setInterval(() => {
-      playCash();
       moneySet((money) => (money += 500));
     }, moneyTimer);
   }, []);
@@ -39,10 +42,15 @@ export default function Component() {
             intelligenceSet((value) => ++value);
           }}
         >
-          <AddInteligence>Add intelligence {intelligence}</AddInteligence>
+          <AddIntelligence>
+            <h1>
+              Add intelligence <GrAdd />
+            </h1>
+          </AddIntelligence>
         </div>
 
-        <div>{money}</div>
+        <h2>Money: {money}</h2>
+        <h2>Intelligence: {intelligence}</h2>
       </div>
     </div>
   );
