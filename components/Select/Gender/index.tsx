@@ -1,4 +1,4 @@
-import { Context, Type } from "@/contexts/gender";
+import { Context, Gender } from "@/contexts/gender";
 import { BsGenderMale, BsGenderFemale } from "react-icons/bs";
 import Menu from "@/components/Select/Menu";
 import styled from "styled-components";
@@ -25,7 +25,7 @@ export default function Component() {
         <Menu title="Select your gender">
           <GenderButton
             onClick={() => {
-              dispatch(Type.FEMALE);
+              dispatch(Gender.FEMALE);
             }}
           >
             <BsGenderFemale color="pink" />
@@ -34,7 +34,7 @@ export default function Component() {
 
           <GenderButton
             onClick={() => {
-              dispatch(Type.MALE);
+              dispatch(Gender.MALE);
             }}
           >
             <BsGenderMale color="blue" />

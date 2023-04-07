@@ -1,11 +1,11 @@
 import { Dispatch, createContext, useState } from "react";
 
-export enum Type {
+export enum Gender {
   MALE,
   FEMALE,
 }
 
-type State = Type;
+type State = Gender;
 
 export const Context = createContext<[State, Dispatch<State>]>(null);
 
